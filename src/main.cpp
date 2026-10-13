@@ -9,7 +9,7 @@
 const char* WIFI_SSID = "rede wifi";
 const char* WIFI_PASS = "senha do wifi";
 
-// url da api para pegar a qualidade do ar de manaus
+// url da api para pegar a qualidade do ar de manaus(pm10, pm2.5 e CO)
 const char* API_URL = "https://air-quality-api.open-meteo.com/v1/air-quality?latitude=-3.1019&longitude=-60.025&current=pm10,pm2_5,carbon_monoxide";
 
 void conectarWiFi(){
@@ -49,7 +49,7 @@ void requisitarDados(){
             float pm25 = doc["current"]["pm2_5"];
             float co = doc["current"]["carbon_monoxide"];
 
-
+            // imprime os valores que foram puxados do JSON
             Serial.println("----------------------------------------");
             Serial.print("pm10: ");
             Serial.println(pm10);
@@ -59,11 +59,12 @@ void requisitarDados(){
 
             Serial.print("co2: ");
             Serial.println(co);
+
+            // converter o valor float de pm25 em int16_t para a IA processar essa informação e realizar a predição
             int16_t dados[] = {
               static_cast<int16_t>(pm25)
             };
-            int16_t predicao = modelo_pm25_predict(dados, 1);
-
+            int16_t predicao = modelo_pm25_predict(dados, 1); // chama o modelo de IA para fazer a predição e retorna um valor inteiro
             Serial.print("predição da ia: ");
             Serial.println(predicao);
             switch (predicao) {
