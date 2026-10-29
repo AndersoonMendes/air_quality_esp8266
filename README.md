@@ -1,10 +1,10 @@
-# 🌫️ Monitoramento da Qualidade do Ar com ESP8266 e Machine Learning
+# Monitoramento da Qualidade do Ar com ESP8266 e Machine Learning
 
 Projeto de estudo que integra Internet das Coisas (IoT), consumo de APIs e Machine Learning para classificar a qualidade do ar a partir da concentração de partículas finas (PM2.5).
 
 O sistema utiliza um ESP8266 para consultar dados da qualidade do ar em Manaus por meio da API Open-Meteo. Em seguida, um modelo de Machine Learning treinado em Python e exportado para C++ realiza a classificação diretamente no microcontrolador.
 
-## 📌 Objetivos
+## Objetivos
 
 - Consultar dados de qualidade do ar por meio de uma API.
 - Processar respostas JSON em um sistema embarcado.
@@ -12,7 +12,7 @@ O sistema utiliza um ESP8266 para consultar dados da qualidade do ar em Manaus p
 - Exportar o modelo para C++ com a biblioteca emlearn.
 - Executar inferências em um ESP8266.
 
-## ⚙️ Tecnologias utilizadas
+## Tecnologias utilizadas
 
 | Tecnologia | Aplicação |
 |---|---|
@@ -26,7 +26,7 @@ O sistema utiliza um ESP8266 para consultar dados da qualidade do ar em Manaus p
 | ArduinoJson | Interpretação das respostas JSON |
 | Open-Meteo API | Fonte dos dados de qualidade do ar |
 
-## 📊 Dados utilizados
+## Dados utilizados
 
 O firmware consulta a API Open-Meteo para obter os seguintes parâmetros:
 
@@ -40,7 +40,7 @@ A consulta utiliza coordenadas da região de Manaus, Amazonas.
 
 **Observação:** CO é monóxido de carbono, não dióxido de carbono (CO₂). Embora o firmware consulte os três parâmetros, atualmente o modelo utiliza apenas PM2.5 para realizar a predição.
 
-## 🧠 Treinamento do modelo
+## Treinamento do modelo
 
 O modelo é treinado em Python utilizando o `RandomForestClassifier`, da biblioteca Scikit-learn.
 
